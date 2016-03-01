@@ -1,0 +1,18 @@
+#!/bin/sh
+
+COMMIT_MSG=`cat $1`
+
+if [[ $COMMIT_MSG =~ ':clock1:' ]]; then
+  echo ""
+else
+  exec < /dev/tty
+  echo "Please enter time tracking for this commit: (ie. 2j 3h 20m) "; 
+  read timetracking; 
+  
+  if [ -z "$timetracking" ]; then
+      echo "Time tracking is missing..."
+      exit 1
+  fi
+  
+  echo " :clock1: "$timetracking >> $1
+fi
