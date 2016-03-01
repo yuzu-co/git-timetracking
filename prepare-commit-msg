@@ -16,3 +16,4 @@ else
   
   echo " :clock1: "$timetracking >> $1
 fi
+
