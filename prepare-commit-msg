@@ -2,7 +2,7 @@
 
 COMMIT_MSG=`cat $1`
 
-if [[ $COMMIT_MSG =~ ':clock1:' || $COMMIT_MSG =~ 'Merge']]; then
+if [[ $COMMIT_MSG =~ ':clock1:' || $COMMIT_MSG =~ 'Merge' ]]; then
   echo ""
 else
   exec < /dev/tty
