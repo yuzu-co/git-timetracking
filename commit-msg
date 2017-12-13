@@ -5,8 +5,9 @@ COMMIT_MSG=`cat $1`
 if [[ $COMMIT_MSG =~ ':clock1:' || $COMMIT_MSG =~ 'Merge' ]]; then
   echo ""
 else
-  exec < /dev/tty
-  if [ $? -eq 0 ]; then
+  SOURCE=$(ps -o comm= $PPID)
+  if [ $SOURCE == 'git' ]; then
+    exec < /dev/tty
     echo "Please enter time tracking for this commit: (ie. 2d 3h 20m) ";
     read timetracking;
 
